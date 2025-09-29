@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name ="viewport" content="width=device-width, initial-scale=1.0" />
+<title>画像スライダー</title>
+<link rel="stylesheet" href="slider.css" />
+</head>
+<body>
+	<div class="slider-container">
+		<!--スライド設定-->
+		<div class="slider">
+			<div class="slide acrive"><img src="画像/img1.jpg" alt="Slide 1" /></div>
+			<div class="slide"><img src="画像/img2.jpg" alt="Slide 2" /></div>
+			<div class="slide"><img src="画像/img3.jpg" alt="Slide 3" /></div>
+		</div>
+		<!--ナビゲーションボタン-->
+		<div class="navigation">
+			<button id="prev">←</button>
+			<button id="next">→</button>
+		</div>
+		<!--サムネイル一覧-->
+		<div class="thumbnails">
+			<img src="画像/img1.jpg" data-index="0" class="thumb active" />
+			<img src="画像/img2.jpg" data-index="1" class="thumb" />
+			<img src="画像/img3.jpg" data-index="2" class="thumb" />
+		</div>
+	</div>
+	
+	<script src="slider.js"></script>
+</body>
+</html>
