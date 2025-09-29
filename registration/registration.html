@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>会員登録フォーム</title>
+<link rel="stylesheet" href="style.css">
+<script src="src/validation.js" defer></script>
+</head>
+<body>
+	<!--進捗バー-->
+	<div id="progressBar">
+		<div class="step active">基本情報</div>
+		<div class="step">住所情報</div>
+		<div class="step">その他情報</div>
+	</div>
+	<form id="registrationForm">
+		<fieldset>
+			<!--基本情報入力画面（フォーム１）-->
+			<legend>ステップ１： 基本情報</legend>
+			<label for="name">氏名：</label>
+			<input type="text" id="name" name="name" required>
+		
+			<label for="email">メールアドレス：</label>
+			<input type="email" id="email" name="email" required>
+		
+			<label for="password">パスワード：</label>
+			<input type="password" id="password" name="password" minlength="8" required>
+		
+			<label for="dob">生年月日：</label>
+			<input type="date" id="dob" name="dob" required>
+		
+			<button type="button" onclick="nextStep(1)">次へ</button>
+		</fieldset>
+		
+		<!--住所入力画面（フォーム２）-->
+		<fieldset style="display:none;">
+			<legend>ステップ２： 住所情報</legend>
+			<label for="postal">住所番号：</label>
+			<input type="text" id="postal" name="postal" pattern="\d{3}-\d{4}" placeholder="例：123-4567" required>
+			
+			<label for="prefecture">都道府県：</label>
+			<input type="text" id="prefecture" name="prefecture" required>
+			
+			<label for="city">市区町村：</label>
+			<input type="text" id="city" name="city" required>
+			
+			<label for="address">番地・建物名：</label>
+			<input type="text" id="address" name="address" required>
+			
+			<button type="button" onclick="nextStep(2)"> 次へ</button>
+		</fieldset>
+		
+		<!--その他情報入力画面（フォーム３）-->
+		<fieldset style="display:none;">
+			<legend>ステップ３： その他情報</legend>
+			<label for="phone">電話番号：</label>
+			<input type="tel" id="phone" name="phone" pattern="\d{2,4}-\d{2,4}-\d{4}" placeholder="例：03-1234-5678" required>
+			
+			<label for="gender">性別：</label>
+			<select id="gender" name="gender" required>
+				<option value="">選択してください</option>
+				<option value="male">男性</option>
+				<option value="female">女性</option>
+				<option value="other">その他</option>
+			</select>
+			
+			<label>
+				<!--利用規約（別のHtML）-->
+				<input type="checkbox" id="terms" name="terms" required>
+				<a href="terms.html" target="_blank">利用規約</a>に同意します
+			</label>
+			
+			<button type="submit">登録する</button>	
+		</fieldset>
+	</form>
+</body>
+</html>
