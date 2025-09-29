@@ -1,0 +1,92 @@
+/*べーススタイル*/
+body
+{
+	font-family: 'Segoe UI', sans-serif;
+	margin: 0;
+	line-height: 1.6;
+	color: #333;
+	background-color: #fff;
+}
+
+header, footer
+{
+	background-color: #004080;
+	color: white;
+	padding: 1rem;
+	text-align: center;
+}
+
+nav ul
+{
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+nav a
+{
+	color: white;
+	text-decoration: none;
+}
+
+main
+{
+	padding: 2rem;
+}
+
+section
+{
+	margin-bottom: 2rem;
+}
+
+.grid
+{
+	display: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+/*フォームアクセシビリティ*/
+form label
+{
+	display: black;
+	margin-top: 1rem;
+}
+
+input, textarea
+{
+	width: 100%;
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+	border: 1px solid "ccc";
+	border-radius: 4px;
+}
+
+button
+{
+	margin-top: 1rem;
+	padding: 0.75rem 1.5rem;
+	background-color: #004080;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer
+}
+
+/*れっすぽんしぶ対応*/
+@media(max-width: 768px)
+nav cl
+{
+	nav ul
+	{
+		flex-direction: column;
+		align-items: center;  
+	}
+	
+	main
+	{
+		padding 1em;
+	}
+}
