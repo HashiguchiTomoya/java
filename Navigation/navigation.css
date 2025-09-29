@@ -1,0 +1,122 @@
+/*ベーススタイル*/
+body
+{
+	margin: 0;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar
+{
+	background: #333;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5em 1em;
+	position: relative;
+}
+
+.nav-menu
+{
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-menu li
+{
+	position: relative;
+}
+
+.nav-menu a
+{
+	display: block;
+	padding: 0.75em 1em;
+	color: white;
+	text-decoration: none;
+	transition: background 0.3s ease;
+}
+
+.nav-menu a:hover
+{
+	background-color: #555;
+}
+
+/*サブメニュー*/
+.has-submenu:hover .submenu
+{
+	display: black;
+}
+
+.submenu
+{
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #444;
+	flex-direction: column;
+	min-width: 150px;
+	z-index: 1000;
+}
+
+.submenu li a
+{
+	padding: 0.5em 1em;
+}
+
+/*メニュー切り替えボタン（モバイル用）*/
+.menu-toggle
+{
+	display: none;
+	background: none;
+	border: none;
+	font-size: 1.5em;
+	color: white;
+	cursor: pointer;
+}
+
+/*レスポンシブ対応*/
+@media(max-width: 768px)
+{
+	.navbar
+	{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.nav-menu
+	{
+		flex-direction: column;
+		width: 100%;
+		display: none;
+	}
+	
+	.nav-menu li
+	{
+		width: 100%;
+	}
+	
+	.nav-menu a
+	{
+		width: 100%;
+	}
+	
+	.submenu
+	{
+		position: static;
+	}
+	
+	.menu-toggle
+	{
+		display: block;
+	}
+	
+	.navbar.active .nav-menu
+	{
+		display: flex;
+	}
+}

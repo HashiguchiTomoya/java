@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Flexbox Navigation</title>
+<script>
+	const toggle = document.querySelector('.menu-toggle');
+	const navbar = document.querySelector('.navbar');
+	toggle.addEventListener('click', () =>
+	{
+		navbar.classList.toggle('active');
+	});
+</script>
+</head>
+<body>
+	<!--ナビゲーションの設定-->
+	<nav class="navbar">
+		<ul class="nav-menu">
+			<li><a href="#">ホーム</a></li>
+			<li class="has-submenu">
+				<a href="#">サービス</a>
+				<ul class="submenu">
+					<li><a href="#">Web開発</a></li>
+					<li><a href="#">アプリ設計</a></li>
+					<li><a href="#">UI/UX</a></li>
+				</ul>
+			</li>
+			<li><a href="#">会社情報</a></li>
+			<li><a href="#">お問い合わせ</a></li>
+		</ul>
+		<!--メニュー表示を切り替え-->
+		<button class="menu-toggle">☰</button>
+	</nav>
+</body>
+</html>
