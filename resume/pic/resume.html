@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>履歴書</title>
+<!--スタイルを整える（CSS）-->
+<style>
+	body
+	{
+		font-family: 'segoe UI', sans-serif;
+		margin: 0;
+		padding: 0;
+		line-height: 1.6;
+		background-color: #f4f4f4;
+		color: #333
+	}
+	
+	header, section, footer
+	{
+		padding: 20px;
+		max-width: 800;
+		margin: auto;
+		background-color: #fff;
+		margin-bottom: 20px;
+		border-radius: 8px;
+	}
+	
+	header
+	{
+		text-align: center;
+	}
+	
+	img.profile
+	{
+		width: 150px;
+		border-radius: 50%;
+	}
+	
+	h1, h2
+	{
+		color: #2c3e50;
+	}
+	
+	form input, form textarea
+	{
+		width: 100%;
+		padding: 10px;
+		margin-top: 8px;
+		margin-bottom: 16px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	
+	form button
+	{
+		background-color: #3498db;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	
+	form button:hover
+	{
+		background-color: #2980b9;
+	}
+</style>
+</head>
+<body>
+	<!--ヘッダー-->
+	<header>
+		<img src="tanaka.jpg" alt="プロフィール写真" class="profile">
+		<h1>田中太郎</h1>
+		<p>システムエンジニア</p>
+	</header>
+	
+	<!--個人情報-->
+	<section id="personal-info">
+		<h2>個人情報</h2>
+		<ul>
+			<li>住所：東京都港区</li>
+			<li>電話番号：090-xxxx-xxxx</li>
+			<li>メール：tarou@examle.com</li>
+		</ul>
+	</section>
+	
+	<!--学歴-->
+	<section id="education">
+		<h2>学歴</h2>
+		<ul>
+			<li>2020年～2024年：横浜市立大学</li>
+			<li>2017年～2020年：神奈川県立七里ガ浜高校</li>
+		</ul>
+	</section>
+	
+	<!--職歴-->
+	<section id="expeience">
+		<h2>職歴</h2>
+		<ul>
+			<li>2024年～現在：株式会社ウェイン ― システム開発第2部</li>
+		</ul>
+	</section>
+	
+	<!--資格-->
+	<section id="skills">
+		<h2>資格</h2>
+		<ul>
+			<li>基本情報技術者試験</li>
+			<li>普通自動車免許</li>
+			<li>ITパスポート</li>
+		</ul>
+	</section>
+	
+	<!--連絡先フォーム-->
+	<section>
+		<h2>連絡先フォーム</h2>
+		<form action="mailto:tarou@example.com" method="post" enctype="text/plain">
+			<label for="name">お名前：</label>
+			<input type="text" id="name" name="name" required>
+			
+			<label for="email">メールアドレス：</label>
+			<input type="email" id="email" name="email" required>
+			
+			<label for="message">メッセージ：</label>
+			<textarea id="message" name="message" rows="5" required></textarea>
+			
+			<button type="submit">送信</button>
+		</form>
+	</section>
+	
+	<!--フッター-->
+	<footer>
+		<p>&copy; 2025 田中太郎. All rights reserved.</p>
+	</footer>
+</body>
+</html>
