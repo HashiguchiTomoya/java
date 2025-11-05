@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initia-scale=1.0">
+<title>商品紹介ページ</title>
+<style>
+	/*全体設定*/
+	body
+	{
+		font-family: arial, sans-serif;
+		margin: 20px;
+	}
+	/*ギャラリーのイメージ*/
+	.gallery img
+	{
+		width: 200px;
+		margin: 10px;
+		border: 1px solid #fff;
+	}
+	/*表*/
+	table
+	{
+		border: 1px solid #fff;
+		padding: 10px;
+		text-align: left;
+	}
+	/*フォーム*/
+	form
+	{
+		margin-top: 40px;
+	}
+	/*reviewsの設定*/
+	.reviews
+	{
+		margin: 20px;
+		padding: 10px;
+		border: 1px solid #ddd
+	}
+	/*starsの設定*/
+	.stars
+	{
+		font-size: 24px;
+		/*デフォルトをグレーに設定*/
+		color: gray;
+	}
+	/*星のスタイル*/
+	.stars::before
+	{
+		/*デフォルトで星5つを表示*/
+		content: "★★★★★";
+		/*星の間隔*/
+		letter-spacing: 3px;
+		/*表示に応じた星の色*/
+		background: linear-gradient(90deg, gold var(--rating, 0), gray var(--rating, 0));
+		/*文字としてクリップ*/
+		-webkit-background-clip: text;
+		/*透明なテキスト*/
+		-webkit-text-fill-color: transparent;
+	}
+</style>
+</head>
+<body>
+	<!--ヘッダー-->
+	<header>
+		<h1>商品紹介ページ</h1>
+	</header>
+	<h2>高性能ワイアレスイヤホン</h2>
+	<div>価格： ￥12,500円</div>
+	
+	<!--商品画像ギャラリー-->
+	<div class="gallery">
+		<img src="gazou1.jpg" alt="商品画像1">
+		<img src="gazou2.jpg" alt="商品画像2">
+		<img src="gazou3.jpg" alt="商品画像3">
+		<img src="gazou4.jpg" alt="商品画像4">
+	</div>
+	
+	<!--商品仕様表-->
+	<table>
+		<tr><th>項目</th><th>詳細</th></tr>
+		<tr><td>ブランド</td><td>SUNMUSIC</td></tr>
+		<tr><td>接続方法</td><td>Bluetooth</td></tr>
+		<tr><td>連続接続時間</td><td>最大9時間</td></tr>
+		<tr><td>充電方法</td><td>USB-TYPEC</td></tr>
+		<tr><td>ノイズキャンセリング</td><td>有</td></tr>
+		<tr><td>防水性</td><td>有</td></tr>
+	</table>
+	
+	<!--購入フォーム-->
+	<h2>購入フォーム</h2>
+	<form>
+		<!--quantity:同じ属性を持つ<name>等の要素に関連図ける-->
+		<lebel for="quantity">数量:</lebel>
+		<input type="number" id="quantity" name="quantity" min="1"max="10" value="1"><br><br>
+		
+		<lebel for="color">カラー選択:</lebel>
+		<select id="color" name="color">
+			<option value="white">ホワイト</option>
+			<option value="red">レッド</option>
+			<option value="blue">ブルー</option>
+			<option value="black">ブラック</option>
+		</select><br><br>
+		
+		<lebel for="mail">メールアドレス:</lebel>
+		<input type="email" id="mail" name="mail" required>
+		
+		<button type="submit">購入する</button>
+	</form>
+	
+	<!--レビュー-->
+	<div class="reviews">
+		<h2>ユーザーレビュー</h2>
+		
+		<div class="review">
+			<span class="stars" style="--rating: 60%"></span>音漏れが多い
+		</div>
+		<div class="review">
+			<span class="stars" style="--rating: 80%"></span>デザインが気に入っている。
+		</div>
+		<div class="review">
+			<span class="stars" style="--rating: 100%"></span>音質がいい
+		</div>
+	</div>
+	
+	<!--フッター-->
+	<footer>
+		<p>&copy; 2025SUNMUSIC. ALL rigth reserved.</p>
+	</footer>
+</body>
+</html>
