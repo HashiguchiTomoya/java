@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+body
+{
+	font-family: sens-serif;
+	padding: 2rem;
+	background: white;
+}
+
+header
+{
+	background-color: darkblue;
+	color: white;
+	padding: 1rem;
+	margin: 10px;
+	text-align: center;
+}
+
+header h1 a
+{
+	color: white;
+	/*ティストの装飾を削除*/
+	text-decoration: none;
+}
+nav ul
+{
+	/*リスト要素の点等を削除*/
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	/*要素同氏の余白を指定*/
+	gap: 1rem;
+}
+nav a
+{
+	color: white;
+	text-decoration: none;
+}
+/*グリッドコンテナ*/
+.container
+{
+	/*要素を格子状に並べて配置*/
+	display: grid;
+	/*利用可能なスペースを4等分してそのうちを１つの割合で各列の幅を指定*/
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	max-width: 1200px;
+	margin: auto;
+}
+
+/*スマホ対応(画面幅が768px未満ならに列)*/
+@media(max-width: 767px)
+{
+	/*グリッドコンテナ*/
+	.container
+	{
+		/*2等分*/
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/*グリッド　box*/
+.box
+{
+	/*タイトルの比率を4:5に*/
+	aspect-ratio: 2 / 2;
+	background: white;
+	border-radius: 8px;
+	/*要素の周りにぼかした影(rgbsで半透明の黒を指定)を生成*/
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	/*要素のボックスからはみ出したコンテンツを非表示にする*/
+	overflow: hidden;
+	display: flex;
+	/*要素を上から下への縦並びに変更*/
+	flex-direction:	column;
+	/*アクション時間調節*/
+	transition: .3s;
+}
+
+.box a
+{
+	color: black;
+	text-decoration: none;
+}
+
+.thumbnail
+{
+	background-color: gray;
+	/*タイトルの比率を18:12に変更*/
+	aspect-ratio: 18 / 12;
+	width: 100%;
+	/*子要素が親要素よりも幅が広い場合に小苦笑しないように指定*/
+	flex-shrink: 0;
+}
+
+.thumbnail > img
+{
+	width: 100%;
+	height: 100%;
+	/*アスペクト比を維持*/
+	object-fit: cover;
+}
+
+.content
+{
+	padding: 0.75rem 1rem;
+	display: flex
+	/*横並びにした要素を両端に寄せた上で、要素間を均等な余白を設ける*/;
+	justify-content: space-between;
+	/*余白を均等に分け合う*/
+	flex-grow: 1;
+}
+
+.title
+{
+	/*ビューポートの幅に応じて自動的に変更(0.95rem:最小値、1.5vw:推奨値でこれに元図いて変化vw:ビューポートの幅1％を示す、1.25rem:最大値)*/
+	font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+	/*フォントを太字に指定*/
+	font-weight: bold;
+	/**/
+	line-height: 1.4;
+	margin-bottom: 0.5rem;
+	flex-grow: 1;
+	/*はみ出したコンテンツを費用時*/
+	overflow: hidden;
+	display: flex;
+	/*要素の最大の高さを1.4倍(一行分)に制約する(calc:指定した計算式の結果を値として使用)*/;
+	max-height: calc(1.4em *1);
+	justify-content: center;
+	align-items: center;
+}
+/*ホバー効果*/
+.box:hover
+{
+	/*元のサイズの1.01倍に拡大*/
+	transform: scale(1.01);
+	/*要素に影をつける(水平方向　垂直方向　ぼかし具合　色　と指定(正の値は右に、負の値は左に移動)*/
+	box-shadow: 10px 15px 10px gray;
+}
+
+footer
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}

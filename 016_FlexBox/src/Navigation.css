@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/*初期設定(*:全ての要素)*/
+*
+{
+	margin: 0;
+	padding: 0;
+	/*要素の幅や高さを計算する際の基準を変更(border-box:要素全体の合計幅が100px(例)になるように計算)*/
+	box-sizing: border-box;
+	font-family: 'Yu mincho', sans-serif;
+	line-height: 1;
+}
+
+body
+{
+	background-color: white;
+}
+/*headerクラスの設定*/
+.header
+{
+	max-width: 800px;
+	margin: 0 auto;
+	display: flex;
+	/*上下の中央揃え指定*/
+	align-items: center;
+}
+/*logoクラスの設定*/
+.logo
+{
+	padding: 10px 20px;
+	/*横並びにし、幅を指定出来る*/
+	display: inline-block;
+}
+/*nav*/
+nav
+{
+	/*要素の左側に余白を自動で作る(右揃え)*/
+	margin-left: auto;
+}
+nav ul
+{
+	display: flex;
+}
+nav ul li
+{
+	padding: 10px 20px;
+}
+ul
+{
+	padding: 0;
+	margin: 0;
+	/*箇条書きのマーカーを非表示にする*/
+	list-style: none;
+}
+a
+{
+	color: #333;
+	/*テキストの装飾(下線など)をなしにする*/
+	text-decoration: none;
+}
+/*wrapperクラスの設定*/
+.wrapper
+{
+	background-color: white;
+	width: 960px;
+	margin: 0 auto;
+	/*横並びに変更*/
+	display: flex;
+	/*boxが幅の端まで来たら折り返し*/
+	flex-wrap: wrap;
+}
+
+/*レスポンシブ対応*/
+/*992px以下はwrapperの幅を変える*/
+@media screen and (max-width:992px)
+{
+	.wrapper
+	{
+		/*boxがちょうど２つ収まるように幅を計算*/
+		width: 640px;
+	}
+}
+/*760px以下はwrapperの幅を変える*/
+@media screen and (max-width:760px)
+{
+	.wrapper
+	{
+		/*boxが１つ収まる*/
+		width: 320px;
+	}
+}
+
+/*boxクラスの設定*/
+.box
+{
+	width: 300px;
+	height: 200;
+	background-color: red;
+	  /*文字色、配置位置の設定*/
+	line-height: 200px;
+	color: white;
+	font-size: 4rem;
+	text-align: center;
+	/*box同氏の感覚を開ける*/
+	margin: 10px;
+	padding: 10px;
+	/*アクション時間調節*/
+	transition: 1s;
+}
+
+/*奇数番号だけ色を変更(奇数:odd,偶数:even)*/
+.box:nth-child(odd)
+{
+	background-color: blue;
+}
+
+/*ホバー効果*/
+.box:hover
+{
+	transform: scale(1.01);
+	box-shadow: 10px 15px 10px gray;
+}

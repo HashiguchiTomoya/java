@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+body
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*ビューポートの高さ(画面サイズに対しての高さ)*/
+	height: 100vh;
+}
+
+.loader
+{
+	display: flex;
+	/*要素の並び方向を縦方向に変更*/
+	flex-direction: column;
+	/*Flexboxなどのレイアウト内の要素間隔を指定*/
+	gap: 40px;
+	align-items: center;
+	
+	
+}
+/*回転*/
+/*spinnerAnimeクラス*/
+.spinnerAnime
+{
+	/*4pxの実線*/
+	border: 4px solid lightgray;
+	/*要素の左側の境界線の色を指定*/
+	border-left-color: orange;
+	/*要素の角を50％(円にする)*/
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	/*アニメーションの指定(設定されたアニメーションを1.2秒かけて一定の速度で繰り返す)*/
+	animation: spinner 1.2s linear infinite;
+
+}
+
+/*keyfreamsの設定*/
+@keyframes spinner
+{
+	/*transfort:回転や移動といった変化を適用*/
+	/*アニメーションの開始時の状態*/
+	0%
+	{
+		/*要素の回転角度を0度に指定*/
+		transform:rotate(0);
+	}
+	/*アニメーションのの終了時の回転角度を360度に指定*/
+	100%
+	{
+		transform: rotate(360deg);
+	}
+}
+
+/*点*/
+/*loadingAnime*/
+.loadingAnime > div
+{
+	/*横並びに並べ(inline)、上下のマージンやパディングを適用(block)*/
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 2px;
+	
+	background-color: darkgray;
+	border-radius: 50%;
+	/*アニメーションを1秒かけて最初は徐々に加速し、最後は徐々に減速することを繰り返す*/
+	animation: loading 1s ease-in-out infinite;
+	
+}
+/*loadingAnimeクラスを持つ2つ目の要素の設定*/
+.loadingAnime > div:nth-child(2)
+{
+	/*0.2秒遅らせる*/
+	animation-delay: 0.2s;
+}
+/*loadingAnimeクラスを持つ3つ目の要素の設定*/
+.loadingAnime > div:nth-child(3)
+{
+	/*0.4秒遅らせる*/
+	animation-delay: 0.4s;
+}
+
+/*keyframesの設定*/
+@keyframes loading
+{
+	0%
+	{
+		transform: scale(1);
+	}
+	50%
+	{
+		transform: scale(2);
+	}
+	100%
+	{
+		transform: scale(1);
+	}
+}
