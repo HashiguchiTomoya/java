@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="stylesheet" content="width=device-width, initaial-scale=1.0">
+<title>ToDoアプリ</title>
+<link rel="stylesheet" href="Todo.css">
+</head>
+<body>
+	<div class="container">
+		<!--タイトル-->
+		<h1>TODOリスト</h1>
+		<!--追加ボタン-->
+		<form id="todoForm">
+			<input type="text" id="todoInput" placeholder="新しいタスクを入力" required>	
+			<button type="submit">追加</button>
+		</form>
+		
+		<!--フィルター-->
+		<div class="filterArea">
+			<button id="filterAll" class="active">全て</button>
+			<button id="filterActive">未完了</button>
+			<button id="filterCompleted">完了</button>
+			
+		</div>
+		
+		<!--タスクの追加-->
+		<ul id="taskList">
+			<!--ここに追加される-->
+		</ul>
+	</div>
+	
+	<script src="Todo.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+body
+{
+	font-family: sans-serif;
+	background-color: white;
+	margin: 0;
+	padding: 20px;;
+}
+
+.container
+{
+	max-width: 500px;
+	margin: auto;
+	background: white;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1
+{
+	text-align: center;
+}
+
+#todoForm
+{
+	display: flex;
+	margin-bottom: 20px;
+}
+
+#todoInput
+{
+	flex-grow: 1;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.filterArea
+{
+	padding: 10px;
+	background-color: ghostwhite;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.filters button
+{
+	padding: 8px 16px;
+	margin: 0 5px;
+	cursor: pointer;
+	background-color: orange;
+	border: none;
+}
+
+.filters button:active
+{
+	background-color: skyblue;
+	color: white;
+}
+
+#taskList
+{
+	list-style-type: none;
+	padding: 0;
+}
+
+.todoItem
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background: floralwhite;
+	border-bottom: 1px solid white;
+	/*ドラッグ可能なカーソル*/
+	cursor: grab;
+}
+
+.todoItem.completed label
+{
+	text-decoration: line-through;
+	color: gray;
+}
+
+/*ドラッグ中のスタイル*/
+.todoItem.dragging
+{
+	opacity: 0.5;
+}
+
+.deleteButton
+{
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<link>
+<meta charset="UTF-8">
+<meta name="stylesheet" content="width=device-width, initaial-scale=1.0">
+<title>Insert title here</title>
+<link rel="stylesheet" href="Slider.css">
+</head>
+<body>
+	<div class="slidercontainer">
+		<!--スライド-->
+		<div class="slider">
+			<div class="slide active">
+				<img src="img1.jpg" alt="slide1">
+			</div>
+			<div class="slide">
+				<img src="img2.jpg" alt="slide2">
+			</div>
+			<div class="slide">
+				<img src="img3.jpg" alt="slide3">
+			</div>
+		</div>
+		<!--ボタン-->
+		<div class="navbutton">
+			<button id="prev">＜</button>
+			<button id="next">＞</button>
+		</div>
+		
+		<!--サムネイル-->
+		<div clas="thumbnails">
+			<img src="img1.jpg" data-index="0" class="thumb active">
+			<img src="img2.jpg" data-index="1" class="thumb">
+			<img src="img3.jpg" data-index="2" class="thumb">
+		</div>
+	</div>
+	<script src="Slider.js"></script>
+</body>
+</html>
