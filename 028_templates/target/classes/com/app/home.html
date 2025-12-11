@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http:///www.thymeleaf.org"
+	  xmlns:sec="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホーム画面</title>
+</head>
+<body>
+	<h1>ようこそ！</h1>
+	<p>
+		現在ログイン中のユーザー：
+		<span sec:authentication="name">ユーザー名</span>さん
+	</p>
+	
+	<form action="/logout" method="post">
+		<input type="submit" value="ログアウト">
+	</form>
+	
+	<!--管理者権限のみ表示される-->
+	<div sec:authorize="hasRole('ADMIN')">
+		<p><a href="admin_dashboard.html">管理者ダッシュボードへ移動</a></p>
+	</div>
+</body>
+</html>
