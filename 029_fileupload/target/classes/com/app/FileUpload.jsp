@@ -57,7 +57,7 @@
 			<!-- 進捗バーの外側の領域を定義(mt-3:上余白の設定、d-none:デフォルトで非表示) -->
 			<div class="progress mt-3 d-none" id="uploadProgress">
 				<!--進捗を表す内側のバーを定義(progress-bar-striped:ストライプ模様のデザインを定義、progress-bar-animated:アニメーション)  -->
-				<div class="progress-bar progress-bar-striped progress-bar-aimated" role="progressbar"
+				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
 					<!-- バーの属性設定(aria-valuenow="0":現在値を送信、aria-valemin(max):最小値と最大値、style="width:0%"初期を0％に) -->
 					id="progressBar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 					<!-- javaScriptで進捗率に応じて書き換えられる -->
@@ -66,71 +66,74 @@
 			</div>
 			<hr/>
 			<!-- c:if Test=:もしresultDtoオブジェクトのimgPathプロパティが空でなければ対応するHTML要素を表示 -->
-			<div class="upload">
-				<p>アップロードファイル：画像</p>
-				<c:if test="${!empty resultDto.imgPath}">
-					<div class="spinner-border d-none uploadFileLoading"></div>
-					<!-- サーバーに渡された保存場所を示すパスを元に正しいURLを自動生成し、画面に表示 -->
-					<img class="uploadFile" src="<c:url value="${resultDto.imgPath}" />"/>
-				</c:if>
-			</div>
-			<hr/>
-			<div class="upload">
-				<p>アップロードファイル：音声</p>
-				<c:if test="${!empty resultDto.audioPath}">
-					<div class="spinner-border d-none uploadFileLoading"></div>
-					<audio class="uploadFile" src="<c:url value="${resultDto.audioPath}" />" controls></audio>
-				</c:if>
-			</div>
-			<hr/>
-			<div class="upload">
-				<p>アップロードファイル：動画</p>
-				<c:if test="${!empty resultDto.videoPath}">
-					<div class="spinner-border d-none uploadFileLoading"></div>
-					<video class="uploadFile" src="<c:url value="${resultDto.videoPath}" />" controls></video>
-				</c:if>
+			<div class="upload-previews">
+				<div class="upload mb-3">
+					<p>アップロードファイル：画像</p>
+					<c:if test="${!empty resultDto.imgPath}">
+						<div class="spinner-border d-none uploadFileLoading"></div>
+						<!-- サーバーに渡された保存場所を示すパスを元に正しいURLを自動生成し、画面に表示 -->
+						<img class="uploadFile" src="<c:url value="${resultDto.imgPath}" />"/>
+					</c:if>
+				</div>
 				<hr/>
+				<div class="upload mb-3">
+					<p>アップロードファイル：音声</p>
+					<c:if test="${!empty resultDto.audioPath}">
+						<div class="spinner-border d-none uploadFileLoading"></div>
+						<audio class="uploadFile" src="<c:url value="${resultDto.audioPath}" />" controls></audio>
+					</c:if>
+				</div>
+				<hr/>
+				<div class="upload mb-3">
+					<p>アップロードファイル：動画</p>
+					<c:if test="${!empty resultDto.videoPath}">
+						<div class="spinner-border d-none uploadFileLoading"></div>
+						<video class="uploadFile" src="<c:url value="${resultDto.videoPath}" />" controls></video>
+					</c:if>
+					<hr/>
+				</div>
 			</div>
 			
 			<!-- ファイル一覧表示 -->
-			<div class="container workspace">
+			<div class="mt-5">
 				<h3>アップロード済みファイル一覧</h3>
 				
 				<!-- listFilesURLをサーバーで実行し、その結果をこのページに取り込む -->
-				<jsp:include page="/listFiles/">
-				<!-- もしfileListが空の場合 -->
-				<c:if test="${empty fileList}">
-					<p>アップロードされたがいるはありません</p>
-				</c:if>
-				<!-- fileListが空でない場合 -->
-				<c:if test="${not empty fileList}">
-					<!-- テーブルを作成 -->
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>ファイル名</th>
-								<th>サイズ(KB)</th>
-								<th>ダウンロードリンク</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- fileListの各要素をfileという変数名でループ処理 -->
-							<c:forEach var="file" item="${fileList}">
-								<tr>
-									<!-- 現在のファイル名を表示 -->
-									<td>${file.name}</td>
-									<!-- 現在のファイルサイズをKBに変換して表示(小数第２位まで) -->
-									<td><fmt:formatNumber value="${file.size / 1024}" maxFractionDigits="2" /></td>
-									<!-- 現在のダウンロードURLへのリンクをBootstrapボタン形式で表示 -->
-									<td><a href="${file.url}" target="_blank" class="btn btn-primary btn-sm">
-										<!-- ダウンロードアイコンとテキストを表示 -->
-										<i class="bi bi-download"></i>ダウンロード
-									</a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</c:if>
+				<jsp:include page="/listFiles"/>
+					<c:choose>
+						<c:when test="${empty fileList}">
+							<p>アップロードされたファイルはありません</p>
+						</c:when>
+						<!-- テーブルを作成 -->
+						<c:otherwise>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>ファイル名</th>
+										<th>サイズ(KB)</th>
+										<th>ダウンロードリンク</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- fileListの各要素をfileという変数名でループ処理 -->
+									<c:forEach var="file" items="${fileList}">
+										<tr>
+											<!-- 現在のファイル名を表示 -->
+											<td>${file.name}</td>
+											<!-- 現在のファイルサイズをKBに変換して表示(小数第２位まで) -->
+											<td><fmt:formatNumber value="${file.size / 1024}" maxFractionDigits="2" /></td>
+											<!-- 現在のダウンロードURLへのリンクをBootstrapボタン形式で表示 -->
+											<td><a href="${file.url}" target="_blank" class="btn btn-primary btn-sm">
+												<!-- ダウンロードアイコンとテキストを表示 -->
+												<i class="bi bi-download"></i>ダウンロード
+											</a></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</c:otherwise>
+					</c:choose>
+				</jsp:include>
 			</div>
 		</div>
 	</main>
