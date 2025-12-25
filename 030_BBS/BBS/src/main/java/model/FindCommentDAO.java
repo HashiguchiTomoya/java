@@ -16,7 +16,7 @@ public class FindCommentDAO
 	final String jdbcUrl = "jdbc:mysql://localhost:3306/BulletiBoard";
 
 	//1. 検索・一覧取得メソッド
-	public List<Board> findcomment(String keyword, String sortOrder, int limit, int offset)
+	public List<Board> findcomment(String keyword, int limit, int offset)
 	{
 		List<Board> list = new ArrayList<>();
 		Connection con = null;
@@ -35,9 +35,6 @@ public class FindCommentDAO
 			{
                 sqlBuilder.append(" WHERE name LIKE ? OR comment LIKE ? ");
 			}
-			
-			// ソート条件 (新しい順)
-			sqlBuilder.append(" ORDER BY time DESC ");
 			
 			// ページネーション
 			sqlBuilder.append(" LIMIT ? OFFSET ? ");	
